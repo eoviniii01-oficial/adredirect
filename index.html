@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Solicite seu acesso ao grupo</title>
+  <title>Digital Money | Grupo de Cupons</title>
 
   <!-- Prévia quando o link for compartilhado (WhatsApp, Instagram etc.) -->
-  <meta property="og:title" content="Entre no nosso grupo">
-  <meta property="og:description" content="Solicite seu acesso ao grupo oficial no WhatsApp.">
-  <meta name="description" content="Redirecionando para o grupo oficial no WhatsApp.">
+  <meta property="og:title" content="Digital Money | Grupo de Cupons">
+  <meta property="og:description" content="Cupons e achadinhos de tecnologia todos os dias no WhatsApp.">
+  <meta name="description" content="Entre no grupo oficial da Digital Money no WhatsApp.">
   <meta name="theme-color" content="#0b141a">
 
   <!-- Meta Pixel Code -->
@@ -31,8 +31,10 @@
     :root {
       --verde: #25d366;
       --verde-escuro: #128c7e;
+      --dourado: #f5c542;
       --fundo: #0b141a;
       --card: #111b21;
+      --card-2: #1a262d;
       --texto: #e9edef;
       --texto-suave: #8696a0;
     }
@@ -46,8 +48,8 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       background: var(--fundo);
       background-image:
-        radial-gradient(circle at 20% 20%, rgba(37, 211, 102, 0.12), transparent 45%),
-        radial-gradient(circle at 80% 80%, rgba(18, 140, 126, 0.15), transparent 45%);
+        radial-gradient(circle at 15% 15%, rgba(37, 211, 102, 0.14), transparent 45%),
+        radial-gradient(circle at 85% 85%, rgba(245, 197, 66, 0.10), transparent 45%);
       color: var(--texto);
     }
 
@@ -57,10 +59,10 @@
       background: var(--card);
       border: 1px solid rgba(255, 255, 255, 0.06);
       border-radius: 24px;
-      padding: 40px 28px 32px;
+      padding: 28px 24px 26px;
       text-align: center;
       box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
-      animation: entrar 0.6s ease-out;
+      animation: entrar 0.5s ease-out;
     }
 
     @keyframes entrar {
@@ -68,12 +70,38 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
+    /* Marca */
+    .marca {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 22px;
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 0.3px;
+    }
+
+    .marca-logo {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--verde), var(--verde-escuro));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #0b141a;
+      font-size: 16px;
+      font-weight: 900;
+    }
+
+    .marca span { color: var(--dourado); }
+
     /* Ícone com anel de progresso */
     .icone-wrap {
       position: relative;
-      width: 110px;
-      height: 110px;
-      margin: 0 auto 28px;
+      width: 96px;
+      height: 96px;
+      margin: 0 auto 20px;
     }
 
     .anel {
@@ -82,11 +110,7 @@
       transform: rotate(-90deg);
     }
 
-    .anel circle {
-      fill: none;
-      stroke-width: 4;
-    }
-
+    .anel circle { fill: none; stroke-width: 4; }
     .anel .base { stroke: rgba(255, 255, 255, 0.08); }
 
     .anel .progresso {
@@ -99,38 +123,91 @@
 
     .icone {
       position: absolute;
-      inset: 14px;
+      inset: 12px;
       border-radius: 50%;
       background: linear-gradient(135deg, var(--verde), var(--verde-escuro));
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5);
       animation: pulso 2s infinite;
     }
 
     @keyframes pulso {
       0%   { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.45); }
-      70%  { box-shadow: 0 0 0 18px rgba(37, 211, 102, 0); }
+      70%  { box-shadow: 0 0 0 16px rgba(37, 211, 102, 0); }
       100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
     }
 
-    .icone svg { width: 40px; height: 40px; fill: #fff; }
+    .icone svg { width: 36px; height: 36px; fill: #fff; }
 
     h1 {
       font-size: 22px;
-      font-weight: 700;
-      margin-bottom: 8px;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 6px;
     }
 
     .sub {
-      font-size: 15px;
+      font-size: 14px;
       color: var(--texto-suave);
       line-height: 1.5;
-      margin-bottom: 28px;
+      margin-bottom: 16px;
     }
 
     .sub strong { color: var(--verde); }
+
+    /* Benefícios */
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 6px;
+      margin-bottom: 18px;
+    }
+
+    .chip {
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(37, 211, 102, 0.10);
+      color: var(--verde);
+      border: 1px solid rgba(37, 211, 102, 0.25);
+    }
+
+    /* Aviso da descrição */
+    .aviso {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      text-align: left;
+      background: var(--card-2);
+      border: 1px solid rgba(245, 197, 66, 0.35);
+      border-radius: 14px;
+      padding: 14px;
+      margin-bottom: 18px;
+    }
+
+    .aviso-icone {
+      flex-shrink: 0;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: rgba(245, 197, 66, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .aviso-icone svg { width: 18px; height: 18px; fill: var(--dourado); }
+
+    .aviso p {
+      font-size: 13.5px;
+      line-height: 1.45;
+      color: var(--texto);
+    }
+
+    .aviso b { color: var(--dourado); }
 
     .botao {
       display: flex;
@@ -143,7 +220,7 @@
       background: var(--verde);
       color: #0b141a;
       font-size: 16px;
-      font-weight: 700;
+      font-weight: 800;
       text-decoration: none;
       transition: transform 0.15s, filter 0.15s;
     }
@@ -153,7 +230,7 @@
     .botao svg { width: 20px; height: 20px; fill: currentColor; }
 
     .seguro {
-      margin-top: 22px;
+      margin-top: 16px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -168,28 +245,46 @@
 <body>
 
   <main class="card">
+    <div class="marca">
+      <div class="marca-logo">$</div>
+      Digital <span>Money</span>
+    </div>
+
     <div class="icone-wrap">
       <svg class="anel" viewBox="0 0 110 110">
         <circle class="base" cx="55" cy="55" r="50"></circle>
         <circle class="progresso" id="progresso" cx="55" cy="55" r="50"></circle>
       </svg>
       <div class="icone">
-        <!-- Ícone de grupo/conversa -->
+        <!-- Ícone de grupo -->
         <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5C15 14.17 10.33 13 8 13zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
       </div>
     </div>
 
-    <h1>Solicite seu acesso ao grupo e aguarde...</h1>
-    <p class="sub">Um administrador vai aprovar sua entrada.<br>Redirecionando em <strong id="contador">3</strong> segundos...</p>
+    <h1>Entrando no grupo de cupons...</h1>
+    <p class="sub">Abrindo o WhatsApp em <strong id="contador">4</strong> segundos</p>
+
+    <div class="chips">
+      <span class="chip">Cupons todo dia</span>
+      <span class="chip">Achadinhos tech</span>
+      <span class="chip">Entrada gratuita</span>
+    </div>
+
+    <div class="aviso">
+      <div class="aviso-icone">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+      </div>
+      <p><b>Importante:</b> assim que entrar, leia a <b>descrição do grupo</b>. Lá explicamos como os cupons funcionam e como aproveitar as ofertas.</p>
+    </div>
 
     <a class="botao" id="botao" href="#">
       <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
-      Solicitar acesso
+      Entrar no grupo
     </a>
 
     <div class="seguro">
       <svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM9 8V6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9z"/></svg>
-      Link oficial e seguro
+      Grupo oficial Digital Money
     </div>
   </main>
 
@@ -198,7 +293,7 @@
     //  CONFIGURAÇÃO — troque só aqui quando mudar de grupo
     // =====================================================
     const LINK_DO_GRUPO = "https://chat.whatsapp.com/C7fwlc6mdr7DqbeesmFDRZ";
-    const SEGUNDOS = 3;
+    const SEGUNDOS = 4;
     // =====================================================
 
     const botao = document.getElementById("botao");
