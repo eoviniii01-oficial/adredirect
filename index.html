@@ -116,10 +116,10 @@
     }
 
     .anel circle { fill: none; stroke-width: 4; }
-    .anel .base { stroke: rgba(255, 255, 255, 0.08); }
+    .anel .base { stroke: rgba(255, 255, 255, 0.35); }
 
     .anel .progresso {
-      stroke: var(--ouro);
+      stroke: #000000;
       stroke-linecap: round;
       stroke-dasharray: 314;
       stroke-dashoffset: 314;
@@ -157,7 +157,10 @@
       margin-bottom: 16px;
     }
 
-    .sub strong { color: var(--ouro); }
+    .sub strong {
+      color: var(--verde);
+      text-shadow: 0 0 6px rgba(37, 211, 102, 0.8), 0 0 14px rgba(37, 211, 102, 0.5);
+    }
 
     /* Benefícios */
     .chips {
@@ -244,18 +247,12 @@
 
     .seguro svg { width: 14px; height: 14px; fill: var(--texto-suave); }
 
-    /* Aviso simples com glow */
+    /* Aviso simples */
     .destaque {
       font-size: 16px;
       font-weight: 700;
       color: #ffffff;
       margin: 6px 0 24px;
-      animation: brilho 2s ease-in-out infinite;
-    }
-
-    @keyframes brilho {
-      0%, 100% { text-shadow: 0 0 6px rgba(255, 255, 255, 0.45), 0 0 14px rgba(232, 176, 75, 0.35); }
-      50%      { text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 24px rgba(232, 176, 75, 0.65); }
     }
   </style>
 </head>
@@ -272,7 +269,7 @@
       </div>
     </div>
 
-    <h1>Entrando na comunidade Digital Money</h1>
+    <h1>Entrando na comunidade<br>Digital Money</h1>
     <p class="sub">Abrindo o WhatsApp em <strong id="contador">4</strong> segundos</p>
 
     <p class="destaque">Importante: leia a descrição do grupo</p>
