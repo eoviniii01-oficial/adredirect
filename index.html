@@ -302,18 +302,25 @@
 
     // Dispara o evento Lead uma única vez e só então vai para o grupo
     let jaFoi = false;
-    function irParaGrupo() {
+    function irParaGrupo(origem) {
       if (jaFoi) return;
       jaFoi = true;
       clearInterval(timer);
-      try { if (window.fbq) { fbq('track', 'Lead'); fbq('track', 'Contact'); } } catch (e) {}
+      try {
+        if (window.fbq) {
+          fbq('track', 'Lead');
+          fbq('track', 'Contact');
+          // diagnóstico: tocou no botão ou só esperou a contagem
+          fbq('trackCustom', origem === 'clique' ? 'CliqueBotao' : 'RedirectAuto');
+        }
+      } catch (e) {}
       // pequena espera para o evento ser enviado antes de sair da página
       setTimeout(() => { window.location.href = LINK_DO_GRUPO; }, 400);
     }
 
     botao.addEventListener("click", (e) => {
       e.preventDefault();
-      irParaGrupo();
+      irParaGrupo('clique');
     });
 
     const inicio = Date.now();
@@ -326,7 +333,7 @@
       progresso.style.strokeDashoffset = circunferencia * (1 - Math.min(passado / total, 1));
 
       if (passado >= total) {
-        irParaGrupo();
+        irParaGrupo('auto');
       }
     }, 50);
   </script>
