@@ -262,15 +262,14 @@
     <div class="icone-wrap">
       <svg class="anel" viewBox="0 0 110 110">
         <circle class="base" cx="55" cy="55" r="50"></circle>
-        <circle class="progresso" id="progresso" cx="55" cy="55" r="50"></circle>
       </svg>
       <div class="icone">
         <img src="perfil.jpg" alt="Digital Money" width="96" height="96">
       </div>
     </div>
 
-    <h1>Entrando na comunidade<br>Digital Money</h1>
-    <p class="sub">Abrindo o WhatsApp em <strong id="contador">4</strong> segundos</p>
+    <h1>Entre na comunidade<br>Digital Money</h1>
+    <p class="sub">Toque no botão para <strong style="white-space:nowrap">entrar no grupo 👇</strong></p>
 
     <p class="destaque">Importante: leia a descrição do grupo</p>
 
@@ -290,52 +289,25 @@
     //  CONFIGURAÇÃO — troque só aqui quando mudar de grupo
     // =====================================================
     const LINK_DO_GRUPO = "https://chat.whatsapp.com/C7fwlc6mdr7DqbeesmFDRZ";
-    const SEGUNDOS = 4;
     // =====================================================
 
     const botao = document.getElementById("botao");
-    const contador = document.getElementById("contador");
-    const progresso = document.getElementById("progresso");
-    const circunferencia = 314;
-
     botao.href = LINK_DO_GRUPO;
 
-    // Dispara o evento Lead uma única vez e só então vai para o grupo
+    // O Lead só conta quando a pessoa TOCA no botão (intenção real).
+    // A navegação é a do próprio link: assim o celular abre o app do WhatsApp direto.
     let jaFoi = false;
-    function irParaGrupo(origem) {
+    botao.addEventListener("click", () => {
       if (jaFoi) return;
       jaFoi = true;
-      clearInterval(timer);
       try {
         if (window.fbq) {
-          fbq('track', 'Lead');
-          fbq('track', 'Contact');
-          // diagnóstico: tocou no botão ou só esperou a contagem
-          fbq('trackCustom', origem === 'clique' ? 'CliqueBotao' : 'RedirectAuto');
+          fbq('track', 'Lead', { value: 0, currency: 'BRL' });
+          fbq('track', 'Contact', { value: 0, currency: 'BRL' });
+          fbq('trackCustom', 'CliqueBotao');
         }
       } catch (e) {}
-      // pequena espera para o evento ser enviado antes de sair da página
-      setTimeout(() => { window.location.href = LINK_DO_GRUPO; }, 400);
-    }
-
-    botao.addEventListener("click", (e) => {
-      e.preventDefault();
-      irParaGrupo('clique');
     });
-
-    const inicio = Date.now();
-    const total = SEGUNDOS * 1000;
-
-    const timer = setInterval(() => {
-      const passado = Date.now() - inicio;
-      const restante = Math.max(0, Math.ceil((total - passado) / 1000));
-      contador.textContent = restante;
-      progresso.style.strokeDashoffset = circunferencia * (1 - Math.min(passado / total, 1));
-
-      if (passado >= total) {
-        irParaGrupo('auto');
-      }
-    }, 50);
   </script>
 
 </body>
